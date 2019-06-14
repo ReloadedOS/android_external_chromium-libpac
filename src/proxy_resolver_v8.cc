@@ -760,11 +760,9 @@ int ProxyResolverV8::SetPacScript(const std::u16string& script_data) {
   if (script_data.length() == 0)
     return ERR_PAC_SCRIPT_FAILED;
 
-  // To help debugging v8 initialization issues, add "--log_all --print_all_exceptions"
-  // to the options
-  // Disable JIT
-  static const char kNoOpt[] = "--no-opt";
-  v8::V8::SetFlagsFromString(kNoOpt, strlen(kNoOpt));
+  // To help debugging v8 initialization issues, uncomment the following lines
+  // static const char kOptions[] = "--log_all --print_all_exceptions";
+  // v8::V8::SetFlagsFromString(kOptions, strlen(kOptions));
 
   // Try parsing the PAC script.
   ArrayBufferAllocator allocator;
